@@ -8,9 +8,9 @@
 
 
 
-![aliyun-auto-signin](https://socialify.git.ci/ImYrS/aliyun-auto-signin/image?font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Auto)
+![aliyun-auto-signin](https://socialify.git.ci/BsBlog/aliyun-auto-signin/image?font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Auto)
 
-![GitHub release](https://img.shields.io/github/v/release/ImYrS/aliyun-auto-signin)
+![GitHub release](https://img.shields.io/github/v/release/BsBlog/aliyun-auto-signin)
 ![wakatime](https://wakatime.com/badge/user/92b8bbab-18e1-4e0c-af6d-082cc16c9d8a/project/0547bf5c-f66c-4798-ab89-96ddb017fef7.svg)
 
 项目用于自动实现阿里云盘的每日签到活动.  
