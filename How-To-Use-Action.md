@@ -55,57 +55,55 @@
 
 1. 创建 `.github/workflows/signin.yml` 文件, 写入 Action 配置, 以下是参考配置
     ```yaml
-    name: Aliyun Signin
+name: Aliyun Signin
 
-    on:
-      schedule:
-       # 每天国际时间 14:40 运行一次, 中国时间 22:40
-        - cron: '40 14 * * *'
-      workflow_dispatch:
-    jobs:
-      signin:
-        name: Aliyun Signin
-        runs-on: ubuntu-latest
-        steps:
-          - uses: BsBlog/aliyun-auto-signin@main
-            with:
-              REFRESH_TOKENS: ${{ secrets.REFRESH_TOKENS }}
-              GP_TOKEN: ${{ secrets.GP_TOKEN}}
-              PUSH_TYPES: ''
-              DO_NOT_REWARD: 'false'
-              SERVERCHAN_SEND_KEY: ${{ secrets.SERVERCHAN_SEND_KEY }}
-              TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-              TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-              PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-              PUSHPLUS_TOPIC: ${{ secrets.PUSHPLUS_TOPIC }}
-              SMTP_HOST: ${{ secrets.SMTP_HOST }}
-              SMTP_PORT: ${{ secrets.SMTP_PORT }}
-              SMTP_TLS: ${{ secrets.SMTP_TLS }}
-              SMTP_USER: ${{ secrets.SMTP_USER }}
-              SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-              SMTP_SENDER: ${{ secrets.SMTP_SENDER }}
-              SMTP_RECEIVER: ${{ secrets.SMTP_RECEIVER }}
-              FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
-              WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
-              CQHTTP_ENDPOINT: ${{ secrets.CQHTTP_ENDPOINT }}
-              CQHTTP_USER_ID: ${{ secrets.CQHTTP_USER_ID }}
-              CQHTTP_ACCESS_TOKEN: ${{ secrets.CQHTTP_ACCESS_TOKEN }}
-              WECHAT_CORPID: ${{ inputs.WECHAT_CORPID }}
-              WECHAT_CORPSECRET: ${{ inputs.WECHAT_CORPSECRET }}
-              WECHAT_AGENTID: ${{ inputs.WECHAT_AGENTID }}
-              WECHAT_TOUSER: ${{ inputs.WECHAT_TOUSER }}
-              WECHAT_PROXYURL: ${{ inputs.WECHAT_PROXYURL }}
-                - name: Delete old workflow run using Github Token
+on:
+  schedule:
+   # 每天国际时间 14:40 运行一次, 中国时间 22:40
+    - cron: '40 14 * * *'
+  workflow_dispatch:
+jobs:
+  signin:
+    name: Aliyun Signin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: BsBlog/aliyun-auto-signin@main
+        with:
+          REFRESH_TOKENS: ${{ secrets.REFRESH_TOKENS }}
+          GP_TOKEN: ${{ secrets.GP_TOKEN}}
+          PUSH_TYPES: ''
+          DO_NOT_REWARD: 'false'
+          SERVERCHAN_SEND_KEY: ${{ secrets.SERVERCHAN_SEND_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+          PUSHPLUS_TOPIC: ${{ secrets.PUSHPLUS_TOPIC }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_TLS: ${{ secrets.SMTP_TLS }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_SENDER: ${{ secrets.SMTP_SENDER }}
+          SMTP_RECEIVER: ${{ secrets.SMTP_RECEIVER }}
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+          CQHTTP_ENDPOINT: ${{ secrets.CQHTTP_ENDPOINT }}
+          CQHTTP_USER_ID: ${{ secrets.CQHTTP_USER_ID }}
+          CQHTTP_ACCESS_TOKEN: ${{ secrets.CQHTTP_ACCESS_TOKEN }}
+          WECHAT_CORPID: ${{ inputs.WECHAT_CORPID }}
+          WECHAT_CORPSECRET: ${{ inputs.WECHAT_CORPSECRET }}
+          WECHAT_AGENTID: ${{ inputs.WECHAT_AGENTID }}
+          WECHAT_TOUSER: ${{ inputs.WECHAT_TOUSER }}
+          WECHAT_PROXYURL: ${{ inputs.WECHAT_PROXYURL }}
 
       - name: Delete old workflow run using Github Token
-        if: env.super_secret == ''
         uses: Mattraks/delete-workflow-runs@v2
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
           retain_days: 0
           keep_minimum_runs: 0
-          delete_workflow_pattern: "Sync with upstream"
+          delete_workflow_pattern: "Aliyun Signin"
     ```
 
 2. 按需修改 `corn` 定时运行时间, 推荐在中国时间 22:00 之后.
